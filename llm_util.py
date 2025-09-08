@@ -54,11 +54,14 @@ class OpenAiLLMProvider(LLMProvider):
         payload = {
             "background": True,
             "model": model,
-            "input": input_text
+            "input": input_text,
         }
         
         if instructions:
             payload["instructions"] = instructions
+
+        if "gpt-5" in model:
+            payload["reasoning"] = { "effort": "minimal"}
         
         response = requests.post(
             f"{self.baseurl}/responses",
@@ -82,8 +85,11 @@ class OpenAiLLMProvider(LLMProvider):
             f"{self.baseurl}/responses/{response_id}",
             headers={"Authorization": f"Bearer {self.token}"},
             timeout=30)
+            print("######" + str(response.json()))
             response = PooledResponse(**response.json())
+            print("###### here")
             if response.status == "completed":
+                print("###### Pooling completed")
                 isCompleted = True
                 return response
             time.sleep(5)
