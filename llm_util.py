@@ -14,7 +14,7 @@ class LLMProvider(ABC):
 
     
     @abstractmethod
-    def initiateResponse(self, input_text: str, instructions: str = "", model: str = "gpt-3.5-turbo") -> str:
+    def initiateResponse(self, input_text: str, instructions: str = "", model: str = "gpt-4.1-nano") -> str:
         """
         Initiate an LLM response request.
         
@@ -50,7 +50,7 @@ class OpenAiLLMProvider(LLMProvider):
             token or os.getenv('OPENAI_API_KEY') or ""
         )
     
-    def initiateResponse(self, input_text: str, instructions: str = "", model: str = "gpt-5-nano") -> str:
+    def initiateResponse(self, input_text: str, instructions: str = "", model: str = "gpt-4.1-nano") -> str:
         payload = {
             "background": True,
             "model": model,
@@ -85,11 +85,8 @@ class OpenAiLLMProvider(LLMProvider):
             f"{self.baseurl}/responses/{response_id}",
             headers={"Authorization": f"Bearer {self.token}"},
             timeout=30)
-            print("######" + str(response.json()))
             response = PooledResponse(**response.json())
-            print("###### here")
             if response.status == "completed":
-                print("###### Pooling completed")
                 isCompleted = True
                 return response
             time.sleep(5)

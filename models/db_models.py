@@ -4,8 +4,6 @@ class BasePromptTemplate(BaseModel):
         promptTemplate: str
         parameterKys: list[str]
 
-class CharacterData(BaseModel):
-     data: str
 
 class StoryverseMetaData(BaseModel):
     storyVerse: str
@@ -20,9 +18,9 @@ class StoryverseMetaData(BaseModel):
 
 class Job(BaseModel):
     storyVerse : str
-    characterData: CharacterData
-    plot: dict
-    storyChain: dict
+    characterData: str
+    plot: str
+    storyChain: str
     storySummary: str
     firstDraft: str
     climaxEnhancedStory: str
