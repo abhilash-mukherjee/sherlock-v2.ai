@@ -14,7 +14,7 @@ class LLMProvider(ABC):
 
     
     @abstractmethod
-    def initiateResponse(self, input_text: str, instructions: str = "", model: str = "gpt-4.1-nano") -> str:
+    def initiateResponse(self, input_text: str, instructions: str = "", model: str = "gpt-4.1-nano", resoning_effort: str = "low") -> str:
         """
         Initiate an LLM response request.
         
@@ -50,7 +50,7 @@ class OpenAiLLMProvider(LLMProvider):
             token or os.getenv('OPENAI_API_KEY') or ""
         )
     
-    def initiateResponse(self, input_text: str, instructions: str = "", model: str = "gpt-4.1-nano") -> str:
+    def initiateResponse(self, input_text: str, instructions: str = "", model: str = "gpt-4.1-nano", resoning_effort: str = "low") -> str:
         payload = {
             "background": True,
             "model": model,
@@ -61,7 +61,7 @@ class OpenAiLLMProvider(LLMProvider):
             payload["instructions"] = instructions
 
         if "gpt-5" in model:
-            payload["reasoning"] = { "effort": "minimal"}
+            payload["reasoning"] = { "effort": resoning_effort}
         
         response = requests.post(
             f"{self.baseurl}/responses",
@@ -98,7 +98,7 @@ class LocalLLMProvider(LLMProvider):
     def __init__(self, baseurl: str = "http://localhost:8000", token: str = ""):
         super().__init__(baseurl, token)
     
-    def initiateResponse(self, input_text: str, instructions: str = "", model: str = "local-model") -> str:
+    def initiateResponse(self, input_text: str, instructions: str = "", model: str = "local-model", resoning_effort: str = "low") -> str:
         payload = {
             "input": input_text,
             "background": True

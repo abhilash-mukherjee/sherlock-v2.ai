@@ -1,0 +1,220 @@
+Response: {
+  "characterList": [
+    {
+      "character": {
+        "name": "Sherlock Holmes",
+        "type": "MAIN",
+        "role": "detective",
+        "gender": "male",
+        "ageRange": "35-45",
+        "socialClass": "upper-middle",
+        "occupation": "Consulting Detective",
+        "physicalDescription": "Tall and spare; hawk-nosed; piercing grey eyes; nicotine-stained fingers",
+        "speechStyle": "precise, clipped",
+        "voiceAndAccentDescription": "cultivated RP with a dry London edge",
+        "personalityTraits": ["observant", "ascetic", "rational", "impatient", "unyielding"],
+        "backStory": "A university-trained chemist who forged the novel profession of consulting detective. His index of crime and keen experiments have undone many London rogues while he lodges at 221B Baker Street with Watson.",
+        "weaknessesAndTrauma": ["boredom leading to stimulant use", "emotional detachment", "risk-taking in pursuit of quarry"],
+        "motivations": "The intellectual chase and the exposure of hidden villainy",
+        "details": "Plays the violin; maintains a chemical bench and a meticulous index of criminals.",
+        "relationshipMap": {
+          "James Watson": "friend, companion, and chronicler",
+          "Mrs. Hudson": "landlady and quiet guardian of the household",
+          "Inspector G. Lestrade": "professional ally; occasionally at odds",
+          "Miss Agnes Whitcombe": "anxious client",
+          "Edwin Whitcombe": "subject of investigation",
+          "Mr. Lucien Armitage": "indirect adversary encountered through casework",
+          "Barnaby Pike": "paid informant from the docks"
+        }
+      }
+    },
+    {
+      "character": {
+        "name": "James Watson",
+         "type": "MAIN",
+        "role": "companion/narrator",
+        "gender": "male",
+        "ageRange": "35-45",
+        "socialClass": "middle-class",
+        "occupation": "Physician and writer",
+        "physicalDescription": "Stout, well-set; neat moustache; steady, kindly eyes; soldierly carriage",
+        "speechStyle": "measured, humane",
+        "voiceAndAccentDescription": "RP with a gentle military crispness",
+        "personalityTraits": ["loyal", "courageous", "practical", "compassionate"],
+        "backStory": "Former army surgeon, wounded at Maiwand in Afghanistan; returned to London and shares rooms with Holmes, recording their adventures for the reading public.",
+        "weaknessesAndTrauma": ["aching old shoulder wound", "occasional nightmares from campaign service", "lingering guilt over lost patients"],
+        "motivations": "Friendship with Holmes and a desire to set the moral record straight",
+        "details": "Keeps orderly notes; carries a service revolver when needful.",
+        "relationshipMap": {
+          "Sherlock Holmes": "closest friend and medical attendant when required",
+          "Mrs. Hudson": "respected landlady; recipient of his courtesy",
+          "Inspector G. Lestrade": "civil but reserved professional acquaintance",
+          "Miss Agnes Whitcombe": "confidant for her worries; takes her statement",
+          "Edwin Whitcombe": "victim under his medical scrutiny",
+          "Mr. Lucien Armitage": "no acquaintance",
+          "Barnaby Pike": "cautious interviewer; offers small gratuities"
+        }
+      }
+    },
+    {
+      "character": {
+        "name": "Mrs. Hudson",
+        "type": "SUPPORTING",
+        "role": "landlady",
+        "gender": "female",
+        "ageRange": "50-65",
+        "socialClass": "lower-middle",
+        "occupation": "Landlady of 221B Baker Street",
+        "physicalDescription": "Stout and neat; vigilant eyes; starched apron and sensible shoes",
+        "speechStyle": "brisk, motherly",
+        "voiceAndAccentDescription": "soft Scots-tinged RP",
+        "personalityTraits": ["tidy", "discreet", "firm", "kindly"],
+        "motivations": "Keep an orderly house and protect her lodgers’ good name",
+        "details": "Screens visitors; conveys notes and trays with quiet efficiency.",
+        "relationshipMap": {
+          "Sherlock Holmes": "demanding tenant, looked after",
+          "James Watson": "polite lodger; trusted",
+          "Inspector G. Lestrade": "tolerated official caller",
+          "Miss Agnes Whitcombe": "nervous caller she comforted",
+          "Edwin Whitcombe": "unknown to her in life",
+          "Mr. Lucien Armitage": "no dealings",
+          "Barnaby Pike": "disliked his rough manners at the door"
+        }
+      }
+    },
+    {
+      "character": {
+        "name": "Inspector G. Lestrade",
+        "type": "SUPPORTING",
+        "role": "Scotland Yard inspector",
+        "gender": "male",
+        "ageRange": "35-45",
+        "socialClass": "lower-middle",
+        "occupation": "Detective Inspector, Scotland Yard",
+        "physicalDescription": "Wiry and compact; keen, ferret-like features; quick, restless hands",
+        "speechStyle": "terse, official",
+        "voiceAndAccentDescription": "London RP with a Yardman’s bark",
+        "personalityTraits": ["dutiful", "skeptical", "dogged", "proud"],
+        "motivations": "Secure a defensible arrest and uphold the Yard’s credit",
+        "details": "Keeps eyes on known haunts; tolerates Holmes’s methods when results follow.",
+        "relationshipMap": {
+          "Sherlock Holmes": "valuable but exasperating ally",
+          "James Watson": "courteous associate",
+          "Mrs. Hudson": "nodding acquaintance at 221B",
+          "Miss Agnes Whitcombe": "initial complainant",
+          "Edwin Whitcombe": "case victim",
+          "Mr. Lucien Armitage": "polite suspect of long standing",
+          "Barnaby Pike": "informant of questionable reliability"
+        }
+      }
+    },
+    {
+      "character": {
+        "name": "Miss Agnes Whitcombe",
+        "type": "SUPPORTING",
+        "role": "client",
+        "gender": "female",
+        "ageRange": "20-30",
+        "socialClass": "lower-middle",
+        "occupation": "Telegraph clerk, Central Telegraph Office",
+        "physicalDescription": "Trim and pale from indoor work; steady hands; sober navy serge",
+        "speechStyle": "earnest, plain",
+        "voiceAndAccentDescription": "clear London RP with clerical briskness",
+        "personalityTraits": ["dutiful", "anxious", "resolute"],
+        "motivations": "Find her missing brother and preserve family honour",
+        "details": "Produces a torn envelope bearing cryptic numerals from her brother’s desk.",
+        "relationshipMap": {
+          "Sherlock Holmes": "engaged him to search",
+          "James Watson": "confides worries; reassured by his manner",
+          "Mrs. Hudson": "comforted in the sitting-room",
+          "Inspector G. Lestrade": "nervously interviewed at the Yard",
+          "Edwin Whitcombe": "sibling — missing, then found deceased",
+          "Mr. Lucien Armitage": "no knowledge of him",
+          "Barnaby Pike": "distrusts his character"
+        }
+      }
+    },
+    {
+      "character": {
+        "name": "Edwin Whitcombe",
+        "type": "VICTIM",
+        "role": "victim",
+        "gender": "male",
+        "ageRange": "25-30",
+        "socialClass": "lower-middle",
+        "occupation": "Bank messenger, City of London",
+        "physicalDescription": "Slim, neat moustache; ink-stained fingers; modest black suit",
+        "speechStyle": "soft-spoken, deferential",
+        "voiceAndAccentDescription": "plain London RP with a Kentish trace",
+        "personalityTraits": ["punctilious", "nervy", "secretive"],
+        "backStory": "Having chanced upon a coded ledger among parcels he conveyed, he attempted to warn authorities anonymously. He disappeared and was later found drowned by Blackfriars stairs, pockets oddly arranged.",
+        "motivations": "Conscience pricked by discovery; sought a safe exit from danger",
+        "details": "Possessed a silver watch scratched with a simple substitution key.",
+        "relationshipMap": {
+          "Miss Agnes Whitcombe": "younger brother",
+          "Sherlock Holmes": "posthumous subject",
+          "James Watson": "examined remains",
+          "Inspector G. Lestrade": "official case officer",
+          "Mr. Lucien Armitage": "no known relation; secret link via the cipher ledger",
+          "Barnaby Pike": "last seen speaking in a riverside tavern"
+        }
+      }
+    },
+    {
+      "character": {
+        "name": "Mr. Lucien Armitage",
+        "type": "ANTAGONIST",
+        "role": "underworld broker",
+        "gender": "male",
+        "ageRange": "35-45",
+        "socialClass": "upper-middle",
+        "occupation": "Proprietor of a West End club; clandestine fixer for dockside smuggling",
+        "physicalDescription": "Immaculate frock coat; waxed moustache; cool, appraising eyes; silver-headed cane",
+        "speechStyle": "smooth, urbane",
+        "voiceAndAccentDescription": "polished RP with a silken City cadence",
+        "personalityTraits": ["charming", "calculating", "ruthless", "unflappable"],
+        "backStory": "Rose from a clerkship in a shipping house to helm an exclusive club that launders proceeds from pilfered cargo and contraband. Keeps order through bribery, blackmail, and well-chosen roughs.",
+        "motivations": "Preserve his reputation and protect his criminal revenues",
+        "details": "Maintains a private cipher ledger and discreet agents on the docks.",
+        "relationshipMap": {
+          "Sherlock Holmes": "occasional adversary through cases; no personal history",
+          "James Watson": "no acquaintance",
+          "Inspector G. Lestrade": "cordially wary; often questioned but never caught",
+          "Miss Agnes Whitcombe": "none",
+          "Edwin Whitcombe": "no known relation; secretly ordered his silencing",
+          "Barnaby Pike": "cowardly subordinate and informant",
+          "Mrs. Hudson": "none"
+        }
+      }
+    },
+    {
+      "character": {
+        "name": "Barnaby Pike",
+        "type": "SUPPORTING",
+        "role": "informant",
+        "gender": "male",
+        "ageRange": "30-40",
+        "socialClass": "working-class",
+        "occupation": "Dockside factor and occasional informant",
+        "physicalDescription": "Stringy and lantern-jawed; tar-stained hands; threadbare pea-jacket",
+        "speechStyle": "cagey, slang-spattered",
+        "voiceAndAccentDescription": "Cockney with a Thameside rasp",
+        "personalityTraits": ["opportunistic", "timid", "observant", "avaricious"],
+        "motivations": "Ready money and self-preservation",
+        "details": "Owes small sums across Rotherhithe; traded whispers for coin.",
+        "relationshipMap": {
+          "Sherlock Holmes": "sells tidings when paid",
+          "James Watson": "respectful, wary of questions",
+          "Inspector G. Lestrade": "pressed for statements at the Yard",
+          "Miss Agnes Whitcombe": "uneasy encounter; feels guilty",
+          "Edwin Whitcombe": "last contact before disappearance",
+          "Mr. Lucien Armitage": "fear-ridden dependency",
+          "Mrs. Hudson": "met briefly at Baker Street door"
+        }
+      }
+    }
+  ]
+}
+✓ Character data generated
+
+🎉 Story generation completed! Job ID: 68c5cc849f83d82e0fdbcac3

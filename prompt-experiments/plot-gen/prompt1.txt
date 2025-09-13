@@ -1,0 +1,57 @@
+You are an expert writer of Victorian detective fiction (1880s–1900s London). Using the provided character data and crime theme, produce a single, tightly-plotted mystery suitable for Sherlock Holmes, faithful to period detail and British English idiom.
+
+INSTRUCTIONS — REQUIRED
+1. Output **only** valid JSON. Do not include any prose, commentary, or markdown outside the JSON.
+2. Top-level JSON keys must be exactly: 
+   "title", "setting", "crimeDetails", "redHerrings", "investigation", "twist", "resolution".
+3. Do not add extra top-level keys.
+4. Base all relationships, motives and actions on names and relationships present in <character-details> Use character names exactly as given. 
+5. Keep everything period-authentic — no anachronisms; use British English spelling and phrasing.
+6. Keep text concise and story-ready (each field should be short, evocative, and directly useful for downstream generation).
+7. Make the twist surprising but fair — it must be supported by at least one clue mentioned earlier in `investigation` or `redHerrings`.
+
+FIELD SPECIFICATIONS
+- "title": an evocative, 3–7 word title (string). Avoid punctuation heavy or modern slang.
+- "setting": object with:
+    - "timeperiod": concise string (e.g., "Autumn 1893")
+    - "location": concise string (e.g., "Whitechapel, London" or "Baker Street and the Thames docks")
+- "crimeDetails": object describing the central crime with fields:
+    - "summary": 1–2 sentences describing what happened (who, what, where, when).
+    - "victim": name(s) exactly as in <character-details> or short descriptor if anonymous.
+    - "means": short phrase describing method (poison, staged accident, theft, forgery, etc.)
+    - "motive_hypotheses": array of 2–3 plausible motives (brief phrases).
+    - "initial_evidence": array of 2–4 concrete, discoverable items (objects, marks, documents, witness statements).
+- "redHerrings": array of 2–4 short objects, each:
+    - "misdirection": brief phrase (what appears suspicious)
+    - "why_plausible": 1 sentence explaining why investigators initially believe it
+- "investigation": an ordered array of 3–6 investigation steps. Each step is an object:
+    - "scene": short scene label (e.g., "Victim's lodging", "Coroner's report")
+    - "action": 1 sentence describing what Holmes/Watson or police do
+    - "clue_found": 1 short item or observation (must tie to initial_evidence or later twist)
+    - "suspects_now": short list of names or descriptors (use names from <character-details> where appropriate)
+- "twist": 1–3 concise sentences that reveal the unexpected but logically supported truth. Must cite (mention) at least one earlier clue from "investigation" or "redHerrings".
+- "resolution": 2–4 sentences describing how the case is closed, the antagonist's exposure or fate, and immediate fallout for principal characters (use names exactly). Mention any moral or legal consequence and any remaining loose end.
+
+STYLE & LENGTH GUIDELINES
+- Use period vocabulary and restrained, precise phrasing.
+- Each array item should be short (1–2 sentences each). Fields that expect arrays should be arrays (not comma strings).
+- Avoid flowery long paragraphs — aim for clarity and actionable detail for a story generator.
+
+VALIDATION NOTES FOR THE CONSUMER
+- Ensure that the consumer checks that names used in "victim", "suspects_now" and "resolution" exactly match names in <character-details>.
+- If <character-details> marks Sherlock or Watson as victims (via the character generator), adjust who leads investigation accordingly (Holmes may be incapacitated; Watson may narrate), and reflect that in "investigation" and "resolution".
+
+Example (not to be output; implementation reference only):
+{
+  "title": "The Midnight Ledger",
+  "setting": {"timeperiod":"Winter 1891","location":"City of London, Threadneedle Street"},
+  ...
+}
+
+
+
+<character-details>
+{{CHARACTER_DATA}}
+</character-details>
+
+Now, using the inputs above, produce the JSON plot strictly following the rules.

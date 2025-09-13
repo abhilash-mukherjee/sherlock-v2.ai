@@ -1,0 +1,214 @@
+You are an expert in Victorian detective fiction and character design. Produce a single, tightly constrained character ensemble for a Sherlock Holmes mystery that is authentic to 1880s–1900s London.
+
+OUTPUT FORMAT: return valid JSON with top level key as characterList, which is a list of objects. with each object having following fields
+- character:
+    - name (*)
+    - type (*): enum : MAIN, SUPPORTING, VICTIM, ANTAGONIST
+    - role
+    - gender (*) : str
+    - ageRange (*) : str
+    - socialClass (*) : str
+    - occupation (*) : str
+    - physicalDescription (*) : str
+    - speechStyle (*) : str
+    - voiceAndAccentDescription (*) : str
+    - personalityTraits (*) : str[]
+    - backStory (* for type = MAIN OR VICTIM OR ANTAGONIST) : str
+    - weaknessesAndTrauma (* for type = MAIN) : str[]
+    - motivations : str
+    - details : str
+    - relationshipMap → relationship shared with other characters:
+        - key: Character Name
+        - value: Relationship with the
+
+
+ENFORCED RULES (must obey):
+2. The characterList MUST include exactly two constant entries: one being "Sherlock Holmes" (role: "detective") and one being "James Watson" (role: "companion/narrator"). These two must always be present and labeled clearly as canonical main characters.
+3. The characterList must contain one or more known supporting characters ({{SUPPORTING_CHARACTER_DETAILS}}) and their relationship with main characters (optional). Also Feel free to add some new unknown characters, as you wish.
+4. The characterList must conatain at-least {{MIN_VICTIM_COUNT}} `VICTIM`. {{IS_SHERLOCK_VICTIM}}. {{IS_WATSON_VICTIM}}
+5. The characterList must contain at-least one antagonist. {{ANTAGONIST_DETAILS}}. {{ANTAGONIST_RELATIONSHIP_WITH_VICTIM}}. {{ANTAGONIST_RELATIONSHIP_WITH_SHERLOCK}}. {{ANTAGONIST_RELATIONSHIP_WITH_WATSON}}
+6. Period authenticity: no anachronisms; use British English idiom where applicable.
+
+
+
+
+________________________________________________________________________________________________________________________________________________________________
+
+META_DATA
+
+
+{
+    "SUPPORTING_CHARACTER_DETAILS": {
+        "valueDistributions" : [
+            {
+                "value": "Mycroft, sherlocks brother"
+                "probability": 0.05
+            }
+        ],
+        "chooseMultiple": True
+    },
+    "MIN_VICTIM_COUNT": {
+        "valueDistributions" : [
+            {
+                "value": "1"
+                "probability": 0.5
+            },
+            {
+                "value": "2"
+                "probability": 0.25
+            }
+        ],
+        "chooseMultiple": False
+    },
+    "IS_SHERLOCK_VICTIM": {
+        "valueDistributions" : [
+            {
+                "value": "Sherlock is one of the victim ...."
+                "probability": 0.05
+            },
+            {
+                "value": ""
+                "probability": 0.95
+            }
+        ],
+        "chooseMultiple": False
+    },
+     "IS_WATSON_VICTIM": {
+        "valueDistributions" : [
+            {
+                "value": "Watson is one of the victim ...."
+                "probability": 0.05
+            },
+            {
+                "value": "//empty"
+                "probability": 0.95
+            }
+        ],
+        "chooseMultiple": False
+    }
+    "ANTAGONIST_DETAILS": {
+        "valueDistributions": [
+            {
+                "value": "Antagonist is an individual..."
+                "probability": 0.5
+            },
+            {
+                "value": "Antagonist is the top members an organized crime group..."
+                "probability": 0.25
+            },
+            {
+                "value": "Antagonist is a non living thing like the devils foot..."
+                "probability": 0.25
+            }
+        ],
+        "chooseMultiple": False
+    },
+    "ANTAGONIST_RELATIONSHIP_WITH_SHERLOCK": {
+        "valueDistributions": [
+            {
+                "value": "Antagonist is related to sherlock..."
+                "probability": 0.1
+            },
+            {
+                "value": "//empty"
+                "probability": 0.9
+            }
+        ]
+    },
+    "ANTAGONIST_RELATIONSHIP_WITH_WATSON": {
+        "valueDistributions": [
+            {
+                "value": "Antagonist is related to watson..."
+                "probability": 0.1
+            },
+            {
+                "value": "//empty"
+                "probability": 0.9
+            }
+        ]
+    }
+}
+
+____-
+
+You are an expert in Victorian detective fiction and character design. Produce a single, tightly constrained character ensemble for a Sherlock Holmes mystery that is authentic to 1880s–1900s London.
+
+OUTPUT RULES
+1. Output **only** valid JSON. Do not include any explanation, commentary, or markdown.
+2. Top-level key must be: "characterList" — an array of character objects.
+3. Do not include any additional top-level keys.
+4. All character names must be unique strings. Use British English idiom and period-appropriate phrasing. No anachronisms.
+
+OUTPUT FORMAT (strict)
+Return valid JSON with top-level key `characterList` which is a list of objects. Each list item must be an object with a single key `character` whose value is an object containing these fields:
+
+- name (*) : string — full name (e.g., "Sherlock Holmes")
+- type (*) : string — one of the enums: "MAIN", "SUPPORTING", "VICTIM", "ANTAGONIST"
+- role : string — short role label (e.g., "detective", "client", "constable")
+- gender (*) : string
+- ageRange (*) : string — approximate (e.g., "30-40")
+- socialClass (*) : string — period-appropriate (e.g., "upper-middle", "working-class")
+- occupation (*) : string
+- physicalDescription (*) : string — concise but evocative, period-appropriate language
+- speechStyle (*) : string — brief descriptor (e.g., "precise, clipped", "florid, theatrical")
+- voiceAndAccentDescription (*) : string — approximate voice & accent (e.g., "RP with slight Cockney lilt")
+- personalityTraits (*) : array of strings — 3–6 succinct traits
+- backStory : string — **required** for characters with type "MAIN", "VICTIM" or "ANTAGONIST"
+- weaknessesAndTrauma : array of strings — **required** for characters with type "MAIN" (Sherlock and other MAINs)
+- motivations : string — concise motive or driving force
+- details : string — any extra, plot-relevant specifics (kept brief)
+- relationshipMap : object — mapping of other character names (exact-match strings) to short relationship descriptors
+
+REQUIREMENTS & CONSTRAINTS
+- The characterList MUST include exactly two canonical constants:
+  - "Sherlock Holmes" (type: "MAIN", role: "detective")
+  - "James Watson" (type: "MAIN", role: "companion/narrator")
+  These two must be labelled exactly as above and must include required MAIN fields (including backStory and weaknessesAndTrauma).
+- The list must include one or more known supporting characters described by {{SUPPORTING_CHARACTER_DETAILS}}. You may also add new supporting characters as needed.
+- The list must contain at least {{MIN_VICTIM_COUNT}} character(s) whose type is "VICTIM".
+- {{IS_SHERLOCK_VICTIM}}
+- {{IS_WATSON_VICTIM}}
+- The list must contain at least one antagonist. antagonist details: {{ANTAGONIST_DETAILS}}.
+  - antagonist relation with victim: {{ANTAGONIST_RELATIONSHIP_WITH_VICTIM}}
+  - antagonist relation with sherlock: {{ANTAGONIST_RELATIONSHIP_WITH_SHERLOCK}}
+  - antagonist relation with watson: {{ANTAGONIST_RELATIONSHIP_WITH_WATSON}}
+- Maintain Period authenticity: no anachronisms; use British English idiom where applicable.
+
+
+ADDITIONAL BEHAVIORAL RULES FOR THE GENERATOR
+- Produce compact, precise values — avoid long essays inside any field. Aim for clarity and immediate utility to a story generator.
+- `relationshipMap` keys must exactly match the `name` values of other characters in the same `characterList`. Relationship values should be short phrases (for example: "former employer", "sibling — estranged", "client of Watson").
+- For any MAIN character include `weaknessesAndTrauma` as 2–4 brief items that can plausibly motivate behaviour and create vulnerability.
+- For each ANTAGONIST and VICTIM, include a `backStory` describing one plot-relevant past event (1–3 sentences).
+- Do not invent or output any additional template parameters beyond those listed above.
+- Keep the JSON parsable and neatly structured (no trailing commas, correct quoting).
+
+Tone & Style
+- Strictly Victorian flavour: ocular detail, class distinctions, period vocabulary where appropriate. Use British English spelling and idiom.
+- Be evocative but economical — each field should be short and usable as an input for downstream story-generation steps.
+
+EXAMPLE (not part of output — for your implementation reference only):
+{
+  "characterList": [
+    {
+      "character": {
+        "name": "Sherlock Holmes",
+        "type": "MAIN",
+        "role": "detective",
+        "gender": "male",
+        "ageRange": "40-45",
+        "socialClass": "upper-middle",
+        "occupation": "Consulting Detective",
+        "physicalDescription": "Tall, gaunt; hawk-like features; furtive glance",
+        "speechStyle": "precise, clinical",
+        "voiceAndAccentDescription": "RP with faint London register",
+        "personalityTraits": ["observant","aloof","methodical"],
+        "backStory": "Formerly affiliated with the Scutari cases; left the official force after a scandal...",
+        "weaknessesAndTrauma": ["addiction to tobacco", "emotional detachment"],
+        "motivations": "To solve puzzles and expose moral hypocrisy",
+        "details": "Often collects minor curiosities; plays the violin",
+        "relationshipMap": {"James Watson": "close friend and chronicler"}
+      }
+    }
+  ]
+}

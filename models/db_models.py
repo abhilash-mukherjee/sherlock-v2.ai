@@ -1,13 +1,29 @@
 from pydantic import BaseModel
 
+class ParameterValueDistribution(BaseModel):
+    value: str
+    probability: float
+class PromptParameterDetails(BaseModel):
+     key : str
+     valueDistribution: list[ParameterValueDistribution]
+     chooseMultiple: bool = False
+     
+class BasePromptTemplateV2(BaseModel):
+        promptTemplate: str
+        parameterKys: list[str]
+        promptParameterDetailsList: list[PromptParameterDetails]
+
 class BasePromptTemplate(BaseModel):
         promptTemplate: str
         parameterKys: list[str]
 
+class CrimeThemeDetails(BaseModel):
+     themes : list[str]
+     probability: float
 
 class StoryverseMetaData(BaseModel):
     storyVerse: str
-    characterGenearationPromptTemplate: BasePromptTemplate
+    characterGenearationPromptTemplate: BasePromptTemplateV2
     plotGenerationPromptTemplate: BasePromptTemplate
     storyChainGenerationPromptTemplate: BasePromptTemplate
     storySummaryGenerationPromptTemplate: BasePromptTemplate
