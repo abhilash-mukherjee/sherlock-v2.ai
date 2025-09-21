@@ -1,4 +1,4 @@
-You are an expert writer of Victorian detective fiction (1880s–1900s London). Using the provided character data and crime theme, produce a single, tightly-plotted mystery suitable for Sherlock Holmes, faithful to period detail and British English idiom.
+You are like sir arthur conanl doyle, the writer of Sherlock Holmes, an expert in victorian fiction (1880s–1900s London). Using the provided character data and crime theme, produce a single, tightly-plotted mystery suitable for Sherlock Holmes, faithful to period detail and British English idiom.
 
 INSTRUCTIONS — REQUIRED
 1. Output **only** valid JSON. Do not include any prose, commentary, or markdown outside the JSON.
@@ -11,16 +11,17 @@ INSTRUCTIONS — REQUIRED
 7. Make the twist surprising but fair — it must be supported by at least one clue mentioned earlier in `investigation` or `redHerrings`.
 
 FIELD SPECIFICATIONS
-- "title": an evocative, 3–7 word title (string). Avoid punctuation heavy or modern slang.
-- "setting": object with:
-    - "timeperiod": concise string (e.g., "Autumn 1893")
-    - "location": concise string (e.g., "Whitechapel, London" or "Baker Street and the Thames docks")
-- "crimeDetails": object describing the central crime with fields:
-    - "summary": 1–2 sentences describing what happened (who, what, where, when).
-    - "victim": name(s) exactly as in <character-details> or short descriptor if anonymous.
-    - "means": short phrase describing method (poison, staged accident, theft, forgery, etc.)
-    - "motive_hypotheses": array of 2–3 plausible motives (brief phrases).
-    - "initial_evidence": array of 2–4 concrete, discoverable items (objects, marks, documents, witness statements).
+- "title": an evocative, 3–7 word title (string). Here are some original sherlock holmes story titles. Take inspiration from the same.
+<original-title-examles>
+{{ORIGINAL_TITLE_EXAMPLES}}
+</original-titles-examles>
+
+- "setting": 1-2 sentences describing the period around which the crime has occurred along with the locations around which the story revolves (e.g: 22B Baker Street, Sussex, etc)
+- "crimeDetails": A short pragraph describing the central crime conaining the victim, the means of crime, the motive/hypothesis and initial evidance.
+The crime-theme should fall under the following category:
+   <crime-theme>
+   {{CRIME_THEME}}
+   </crime-theme>
 - "redHerrings": array of 2–4 short objects, each:
     - "misdirection": brief phrase (what appears suspicious)
     - "why_plausible": 1 sentence explaining why investigators initially believe it
@@ -38,20 +39,11 @@ STYLE & LENGTH GUIDELINES
 - Avoid flowery long paragraphs — aim for clarity and actionable detail for a story generator.
 
 VALIDATION NOTES FOR THE CONSUMER
-- Ensure that the consumer checks that names used in "victim", "suspects_now" and "resolution" exactly match names in <character-details>.
 - If <character-details> marks Sherlock or Watson as victims (via the character generator), adjust who leads investigation accordingly (Holmes may be incapacitated; Watson may narrate), and reflect that in "investigation" and "resolution".
-
-Example (not to be output; implementation reference only):
-{
-  "title": "The Midnight Ledger",
-  "setting": {"timeperiod":"Winter 1891","location":"City of London, Threadneedle Street"},
-  ...
-}
-
 
 
 <character-details>
-{{CHARACTER_DATA}}
+{{CHARACTER_DETAILS}}
 </character-details>
 
 Now, using the inputs above, produce the JSON plot strictly following the rules.

@@ -24,7 +24,7 @@ class CrimeThemeDetails(BaseModel):
 class StoryverseMetaData(BaseModel):
     storyVerse: str
     characterGenearationPromptTemplate: BasePromptTemplateV2
-    plotGenerationPromptTemplate: BasePromptTemplate
+    plotGenerationPromptTemplate: BasePromptTemplateV2
     storyChainGenerationPromptTemplate: BasePromptTemplate
     storySummaryGenerationPromptTemplate: BasePromptTemplate
     fistDraftGenerationPromptTemplate: BasePromptTemplate

@@ -204,7 +204,7 @@ def getPromptFromTemplate(
             return ", ".join(vals)
         else:
             warnings.append(f"Template contains placeholder '{{{{{k}}}}}' but no parameter details were provided.")
-            return ""
+            return match.group(0)  # Return the original placeholder unchanged
 
     filled_prompt = _PLACEHOLDER_PATTERN.sub(_replacement, template_str)
 
