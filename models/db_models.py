@@ -31,6 +31,11 @@ class StoryverseMetaData(BaseModel):
     climaxEnhancementPromptTemplate: BasePromptTemplate
     storyverseAlignmentPromptTemplate: BasePromptTemplate
 
+class AudioChunk(BaseModel):
+    chunkId: str
+    text: str
+    outputAudioFilePath: str
+
 
 class Job(BaseModel):
     storyVerse : str
@@ -41,3 +46,4 @@ class Job(BaseModel):
     firstDraft: str
     climaxEnhancedStory: str
     finalStory: str
+    audioChunks: list[AudioChunk] = []

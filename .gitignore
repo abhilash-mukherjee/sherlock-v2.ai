@@ -23,3 +23,5 @@ build/
 
 # Virtual environments
 venv/
+
+audio_outputs/
