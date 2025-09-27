@@ -47,3 +47,4 @@ class Job(BaseModel):
     climaxEnhancedStory: str
     finalStory: str
     audioChunks: list[AudioChunk] = []
+    finalAudioFilePath: str = ""
