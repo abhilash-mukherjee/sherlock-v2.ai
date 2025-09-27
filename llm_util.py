@@ -78,7 +78,7 @@ class OpenAiLLMProvider(LLMProvider):
     
     def getPooledResponse(self, response_id: str) -> PooledResponse:
         isCompleted = False
-        attempts = 30
+        attempts = 90
         while isCompleted != True and attempts > 0:
             attempts -= 1
             response = requests.get(

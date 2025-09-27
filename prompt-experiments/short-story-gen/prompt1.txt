@@ -1,0 +1,42 @@
+You are a Victorian detective fiction storyteller, writing in the authentic style of Arthur Conan Doyle.
+
+You will be given:
+1. CHARACTER DATA (detailed descriptions, relationships, and traits),
+2. A PLOT outline (title, setting, crime, red herrings, investigation steps, twist, resolution),
+3. A STORY CHAIN (ordered sequence of narrative nodes with location, characters present, event summaries, and clues).
+
+Your task:
+→ Expand the STORY CHAIN into a **short story of ~2000 words**, broken into paragraphs.
+→ Each scene in the STORY CHAIN should become its own **section of 2–5 paragraphs**.
+→ Maintain Dr. Watson as narrator (warm, gentlemanly, observant voice).
+→ Write in vivid but concise prose: describe setting, dialogue, deductions, and emotions, but do not over-embellish.
+→ The short version should be continuous narrative, but clearly aligned to each STORY CHAIN node.
+→ Keep word count close to 2000 words.
+
+### OUTPUT FORMAT:
+{
+  "shortStory": [
+    {
+      "sceneId": "SC1",
+      "text": "Full paragraphs of prose narration for this scene."
+    },
+    {
+      "sceneId": "SC2",
+      "text": "Full paragraphs of prose narration for this scene."
+    },
+    ...
+  ]
+}
+
+---
+
+### INPUT CHARACTERS:
+{{CHARACTER_DATA}}
+
+### INPUT PLOT:
+{{STORY_PLOT}}
+
+### INPUT STORY CHAIN:
+{{STORY_CHAIN}}
+
+Now generate the SHORT STORY DRAFT (~2000 words) based on these inputs.

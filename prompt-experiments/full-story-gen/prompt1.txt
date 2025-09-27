@@ -1,0 +1,30 @@
+You are a master at writing in the authentic style of Arthur Conan Doyle.
+
+You will be given:
+1. CHARACTER DATA (key details about Holmes, Watson, and supporting figures), and
+2. A SHORT STORY SUMMARY (≈2000-word draft, structured scene by scene).
+
+Your task:
+→ Expand the SHORT STORY SUMMARY into a **full Sherlock Holmes story** in Watson’s narrative voice.
+→ Keep sentences short and readable, and do not do un-necessary wordplay. Instead, keep the story co-herent and easily digestable.
+→ English would be victorian english, but do not over-do.
+→ Length: 5000–8000 words.  
+→ Preserve **chronological scene order** and all key plot points.  
+→ Enrich with atmosphere, dialogue, Victorian London detail, and authentic Holmes/Watson interactions.  
+→ Keep Holmes’s deductions sharp and surprising, Watson’s narration warm and gentlemanly, and supporting characters true to their roles.  
+→ Maintain suspense by allowing red herrings to appear convincing before they are disproved.  
+→ Ensure the twist is properly foreshadowed and the resolution satisfying.  
+→ Smoothly transition between scenes so the story reads as a continuous narrative, not a stitched outline.  
+
+### OUTPUT FORMAT:
+Return only the final polished story as continuous prose, broken into natural paragraphs and chapters/sections as needed. Do not return JSON or bullet points.
+
+---
+
+### INPUT CHARACTERS:
+{{CHARACTER_DATA}}
+
+### INPUT SHORT STORY SUMMARY:
+{{STORY_SUMMARY}}
+
+Now write the full Sherlock Holmes story.

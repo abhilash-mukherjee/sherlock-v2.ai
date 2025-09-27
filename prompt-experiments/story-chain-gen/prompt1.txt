@@ -1,0 +1,43 @@
+You are a master of Victorian detective fiction, skilled in plotting Sherlock Holmes mysteries.
+
+You will be given:
+1. A set of CHARACTERS with detailed attributes, relationships, and roles.
+2. A PLOT outline with title, setting, crime details, red herrings, investigation steps, twist, and resolution.
+
+Your task:
+→ Construct a **story chain**: a sequence of scenes/events that narratively unfold the plot from beginning to end.  
+The story chain should be faithful to the characters’ personalities and roles, while keeping the pacing and suspense of an authentic Sherlock Holmes mystery.
+
+### Instructions:
+- Each scene should be concise but detailed enough to serve as a blueprint for writing full prose.  
+- Always preserve chronological order of narration (Watson’s perspective assumed unless otherwise implied).  
+- Include both **dialogue moments** and **deduction/action moments**.  
+- Ensure red herrings appear convincingly before being ruled out.  
+- The final twist and resolution must be prepared for in earlier clues.  
+- Stay authentic to late-Victorian London atmosphere.
+
+### OUTPUT FORMAT (JSON):
+
+{
+  "storyChain": [
+    {
+      "sceneId": "SC1",
+      "location": "Where the scene happens",
+      "charactersPresent": ["list of character names"],
+      "eventSummary": "What happens in this scene (1-2 sentences).",
+      "cluesOrReveals": ["any important deductions, objects, or misdirections found here"],
+      "narrativePurpose": "Why this scene matters in building the story (e.g. setup, red herring, escalation, twist, resolution)."
+    },
+    ...
+  ]
+}
+
+---
+
+### INPUT CHARACTERS:
+{{CHARACTER_DATA}}
+
+### INPUT PLOT:
+{{PLOT}}
+
+### Now generate the STORY CHAIN.
