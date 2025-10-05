@@ -1,0 +1,37 @@
+You are like Sir arthur conan doyle, the writer of Sherlock Holmes, an expert in victorian fiction (1880s–1900s London).
+
+You will be given:
+1. A set of CHARACTERS (including Sherlock and watson) with detailed attributes, relationships, and roles.
+2. A PLOT outline with title, setting, crime details, red herrings, investigation steps, twist, and resolution.
+
+Your task:
+→ Construct a **story chain**: a sequence of scenes/events that narratively unfold the plot from beginning to end.  
+The story chain should be faithful to the characters’ personalities and roles, while keeping the pacing and suspense of an authentic Sherlock Holmes mystery.
+
+### Instructions:
+- Each scene should be concise but detailed enough to serve as a blueprint for writing full prose.  
+- Always preserve chronological order of narration (Watson’s perspective assumed unless otherwise implied).  
+- Include both **dialogue moments** and **deduction/action moments**.  
+- Ensure red herrings appear convincingly before being ruled out.  
+- The final twist and resolution must be prepared for in earlier clues.  
+- Stay authentic to late-Victorian London atmosphere.
+
+### OUTPUT FORMAT (JSON):
+
+{
+  "storyChain": [
+    "",
+    "",
+    ...
+  ]
+}
+
+---
+
+### INPUT CHARACTERS:
+{{CHARACTER_DATA}}
+
+### INPUT PLOT:
+{{PLOT}}
+
+### Now generate the STORY CHAIN.
