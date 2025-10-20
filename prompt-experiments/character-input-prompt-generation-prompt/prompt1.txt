@@ -1,0 +1,141 @@
+
+I will be sharing with you:
+1. a prompt template used to generate Sherlock Holmes character data, and
+2. the actual character data output from that template.
+
+Your task:
+→ Generate my **final prompt**, by taking the <prompt-template> and replacing each placeholder with the correct value extracted from the <character-data> according to the exact replacement rules below.
+
+Do not alter the <prompt-template> structure or formatting except to replace the placeholders with their corresponding text values. Do not modify <character-data> either — it is used only as input for analysis.
+
+────────────────────────────
+PLACEHOLDER REPLACEMENT RULES
+────────────────────────────
+
+**{{SUPPORTING_CHARACTER_DETAILS}}**
+- Replace this with the people from below list who appear in the <character-data>
+
+Known supporting characters:
+a. "Mrs Hudson — Sherlock Holmes’ long-suffering Scottish landlady, known for serving meals and maintaining his chambers. She is loyal and resourceful, often aiding Holmes with subtle tricks and surprises."
+b. "Inspector Lestrade — A lean, sly, and conventional Scotland Yard detective, tenacious but lacking imagination. Despite his limitations, he frequently consults Sherlock Holmes and occasionally succeeds in difficult cases."
+c. "Mycroft Holmes — hysically massive but intellectually unparalleled, with powers of observation and deduction even greater than Sherlock’s. He holds a unique, essential role in the British Government, serving as a living clearing-house of information and influence. Though unambitious and sedentary, he occasionally aids Sherlock, maintaining a close yet understated familial bond."  
+d. "Irene Adler — A clever woman of mystery; cultured, independent, a rare intellectual equal/foil to Holmes"  
+e. "Mrs. Mary Morstan — Was once a client to Sherlock Holmes in one of the cases, later turned to be wife of Dr Watson."  
+f. "Toby — Toby is the scent-tracking dog Sherlock Holmes borrowed to follow the killers' trails"
+g. "Inspector Hopkins" - Young promising inspector from Scotland Yard in whose career Sherlock Holmes had several times shown a very practical interest.
+h. "Inspector Gregson" - Inspector of Scotland Yard, a quick, energetic, and competent detective, though conventional and often outshone by Holmes. He collaborates on major cases but typically receives credit for work Holmes actually solves.
+
+
+**{{MIN_VICTIM_COUNT}}**
+- Replace with the count of characters in <character-data> whose `"type": "VICTIM"`.
+
+**{{IS_SHERLOCK_VICTIM}}**
+- If any `"type": "VICTIM"` entry corresponds to `"name": "Sherlock Holmes"`, replace this placeholder with:  
+  → "Sherlock is one of the victims. Think of a creative way to link antagonist with Dr Watson, and how Dr Watson can become victim."
+- Otherwise, leave this placeholder **empty** (no replacement text).
+
+**{{IS_WATSON_VICTIM}}**
+- If any `"type": "VICTIM"` entry corresponds to `"name": "James Watson"`, replace this placeholder with:  
+  → "Dr Watson is one of the victims. Think of a creative way to link antagonist with Dr Watson, and how Dr Watson can become victim."
+- Otherwise, leave this placeholder **empty**.
+
+**{{ANTAGONIST_DETAILS}}**
+- Examine the `"type": "ANTAGONIST"` entry in <character-data>.
+- Choose **exactly one** of the following three descriptions, based on which best matches the antagonist profile:
+a. "A single, cunning individual with intimate ties to London's underworld — urbane, resourceful, and personally dangerous" 
+b. "A senior member of an organised crime syndicate who operates through intermediaries and respectable fronts" 
+c. "An apparently non-human or uncanny 'force' (e.g., an artefact, phenomenon or organised deception) that inspires fear and legend"
+d. "A respected public figure who conceals a ruthless and manipulative nature, using influence and charm to further hidden agendas"
+e. "A skilled criminal mastermind operating from the shadows, orchestrating complex schemes without ever revealing themselves"
+f. "A seemingly ordinary individual whose obsessive fixation or secret vendetta drives them to dangerous extremes"
+
+**{{ANTAGONIST_RELATIONSHIP_WITH_VICTIM}}**
+- Select the most fitting relationship descriptor for the antagonist-victim connection:
+  a. "former associate — a betrayed partner or ex-employee who seeks reparation"  
+  b. "revenge-motivated stranger — the antagonist targets victims to settle a private grievance"  
+  c. "direct inheritor/claimant — contests the victim's estate or reputation"  
+  d. "no prior known relation — the connection is revealed only through investigation"
+
+**{{ANTAGONIST_RELATIONSHIP_WITH_SHERLOCK}}**
+- Select the most appropriate option:
+  a. "personal vendetta — a past slight or intellectual humiliation fuels the antagonist"  
+  b. "indirect adversary — occasionally crosses paths through casework but no personal history"  
+  c. "none"
+
+**{{ANTAGONIST_RELATIONSHIP_WITH_WATSON}}**
+- Select the most appropriate option:
+  a. "knows Watson socially — perhaps once tended to him as a patient or acquaintance"  
+  b. "antagonist is indifferent to Watson — views him only as Holmes's companion"  
+  c. "none"
+
+────────────────────────────
+FINAL OUTPUT RULES
+────────────────────────────
+- Output **only** the final prompt with placeholders replaced — do not include commentary, analysis, or any additional text.
+- Ensure all replacements are inserted cleanly with proper spacing, punctuation, and quotation marks preserved.
+- Maintain strict formatting and indentation of <prompt-template> while substituting values.
+
+────────────────────────────
+INPUTS BELOW
+────────────────────────────
+
+<prompt-template>
+You are arthur conan dolyle (the writer of sherlock holmes). Produce a single, tightly constrained character ensemble for a Sherlock Holmes mystery that is authentic to 1880s–1900s London.
+
+OUTPUT RULES
+1. Output **only** valid JSON. Do not include any explanation, commentary, or markdown.
+2. Top-level key must be: "characterList" — an array of character objects.
+3. Do not include any additional top-level keys.
+4. All character names must be unique strings. No anachronisms.
+
+OUTPUT FORMAT (strict)
+Return valid JSON with top-level key `characterList` which is a list of objects. Each list item must be an object with a single key `character` whose value is an object containing these fields:
+
+- name (*) : string — full name (e.g., "Sherlock Holmes")
+- type (*) : string — one of the enums: "MAIN", "SUPPORTING", "VICTIM", "ANTAGONIST"
+- role : string — short role label (e.g., "detective", "client", "constable")
+- gender (*) : string
+- ageRange (*) : string — approximate (e.g., "30-40")
+- socialClass (*) : string — period-appropriate (e.g., "upper-middle", "working-class")
+- occupation (*) : string
+- physicalDescription (*) : string — concise but evocative, period-appropriate language
+- speechStyle (*) : string — brief descriptor (e.g., "precise, clipped", "florid, theatrical")
+- voiceAndAccentDescription (*) : string — approximate voice & accent (e.g., "RP with slight Cockney lilt")
+- personalityTraits (*) : array of strings — 3–6 succinct traits
+- backStory : string — **required** for characters with type "MAIN", "VICTIM" or "ANTAGONIST"
+- weaknessesAndTrauma : array of strings — **required** for characters with type "MAIN" (Sherlock and other MAINs)
+- motivations : string — concise motive or driving force
+- details : string — any extra, plot-relevant specifics (kept brief)
+- relationshipMap : object — mapping of other character names (exact-match strings) to short relationship descriptors
+
+REQUIREMENTS & CONSTRAINTS
+- The characterList MUST include exactly two canonical constants:
+  - "Sherlock Holmes" (type: "MAIN", role: "detective")
+  - "James Watson" (type: "MAIN", role: "companion/narrator")
+  These two must be labelled exactly as above and must include required MAIN fields.
+- The list must include one or more known supporting characters described by the below 'known' suppoerting character details(You should also add new supporting characters as needed.): 
+{{SUPPORTING_CHARACTER_DETAILS}}.
+- The list must contain at least {{MIN_VICTIM_COUNT}} character(s) whose type is "VICTIM".
+- {{IS_SHERLOCK_VICTIM}}
+- {{IS_WATSON_VICTIM}}
+- The list must contain at least one antagonist. antagonist details: {{ANTAGONIST_DETAILS}}.
+  - antagonist relation with victim: {{ANTAGONIST_RELATIONSHIP_WITH_VICTIM}}
+  - antagonist relation with sherlock: {{ANTAGONIST_RELATIONSHIP_WITH_SHERLOCK}}
+  - antagonist relation with watson: {{ANTAGONIST_RELATIONSHIP_WITH_WATSON}}
+- Maintain Period authenticity: no anachronisms; use British English.
+
+
+ADDITIONAL BEHAVIORAL RULES FOR THE GENERATOR
+- Produce compact, precise values — avoid long essays inside any field. Aim for clarity and immediate utility to a story generator.
+- `relationshipMap` keys must exactly match the `name` values of other characters in the same `characterList`. Relationship values should be short phrases (for example: "former employer", "sibling — estranged", "client of Watson").
+- For any MAIN character include `weaknessesAndTrauma` as 2–4 brief items that can plausibly motivate behaviour and create vulnerability.
+- For each ANTAGONIST and VICTIM, include a `backStory` describing one plot-relevant past event (1–3 sentences).
+- Do not invent or output any additional template parameters beyond those listed above.
+- Keep the JSON parsable and neatly structured (no trailing commas, correct quoting).
+
+Tone & Style
+- Strictly Victorian flavour: ocular detail, class distinctions, period vocabulary where appropriate. Use British English spelling and idiom.
+- Be evocative but economical — each field should be short and usable as an input for downstream story-generation steps.
+</prompt-template>
+
+<character-data>

@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from pymongo.collection import Collection
 from bson import ObjectId
 from dotenv import load_dotenv
-from models.db_models import Job, StoryverseMetaData
+from models.db_models import Job, StoryverseMetaData, TrainingDataGenMetaData, TrainingIOPair
 
 load_dotenv()
 
@@ -48,7 +48,19 @@ class DatabaseManager:
         meta_data = self.db.story_verse_meta_data.find_one({"storyVerse": story_verse})
         if meta_data:
             return StoryverseMetaData(**meta_data)
-    
+
+    def get_training_data_gen_meta_data(self, story_verse: str) -> Optional[TrainingDataGenMetaData]:
+        """Get training data generation meta data for story verse"""
+        meta_data = self.db.training_data_gen_meta_data.find_one({"storyVerse": story_verse})
+        if meta_data:
+            return TrainingDataGenMetaData(**meta_data)
+        return None
+
+    def create_training_io_pair(self, training_io_pair: TrainingIOPair) -> str:
+        """Create a new training IO pair and return its ID"""
+        result = self.db.training_io_pairs.insert_one(training_io_pair.model_dump())
+        return str(result.inserted_id)
+
     def close(self):
         """Close database connection"""
         self.client.close()

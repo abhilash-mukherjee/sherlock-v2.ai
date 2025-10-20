@@ -1,4 +1,6 @@
-You are like Sir arthur conanl doyle, the writer of Sherlock Holmes, an expert in victorian fiction (1880s–1900s London). Using the provided character data and crime theme, produce a single, tightly-plotted mystery suitable for Sherlock Holmes, which is super-intruiging and feels like real sherlock holmes story.
+Go through the provided <full-story> (sherlock holmes story)
+and extract the plot of the story in the below mentioned format.
+
 INSTRUCTIONS — REQUIRED
 1. Output **only** valid JSON. Do not include any prose, commentary, or markdown outside the JSON.
 2. Top-level JSON keys must be exactly: 
@@ -10,17 +12,9 @@ INSTRUCTIONS — REQUIRED
 7. Make the twist surprising but fair — it must be supported by at least one clue mentioned earlier in `investigation` or `redHerrings`.
 
 FIELD SPECIFICATIONS
-- "title": an evocative, 3–7 word title (string). Here are some original sherlock holmes story titles. Take inspiration from the same.
-<original-title-examles>
-{{ORIGINAL_TITLE_EXAMPLES}}
-</original-titles-examles>
-
+- "title": The tile of the story
 - "setting": 1-2 sentences describing the period around which the crime has occurred along with the locations around which the story revolves (e.g: 22B Baker Street, Sussex, etc)
 - "crimeDetails": A short pragraph describing the central crime conaining the victim, the means of crime, the motive/hypothesis and initial evidance.
-The crime-theme should fall under the following category:
-   <crime-theme>
-   {{CRIME_THEME}}
-   </crime-theme>
 - "investigation": Describe in 3-5 sentences how the investigation unfolds.
 - "redHerrings": A brief list of redHerrings, with each redHerring described in 1-2 sentence.
 - "twist": 1–3 concise sentences that reveal the unexpected but logically supported truth. Must cite (mention) at least one earlier clue from "investigation" or "redHerrings".
@@ -31,12 +25,7 @@ STYLE & LENGTH GUIDELINES
 - Each array item should be short (1–2 sentences each). Fields that expect arrays should be arrays (not comma strings).
 - Avoid flowery long paragraphs — aim for clarity and actionable detail for a story generator.
 
-VALIDATION NOTES FOR THE CONSUMER
-- If <character-details> marks Sherlock or Watson as victims (via the character generator), adjust who leads investigation accordingly (Holmes may be incapacitated; Watson may narrate), and reflect that in "investigation" and "resolution".
 
+Now, using the below <full-story> , produce the JSON plot strictly following the rules.
 
-<character-details>
-{{CHARACTER_DETAILS}}
-</character-details>
-
-Now, using the inputs above, produce the JSON plot strictly following the rules.
+<full-story>

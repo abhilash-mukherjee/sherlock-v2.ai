@@ -1,0 +1,34 @@
+
+From the provider sherlock holmes story extract the story chain.
+
+You will be given:
+1. The <full-story>
+
+Your task:
+→ Construct a **story chain**: a sequence of scenes/events that narratively unfold the plot from beginning to end.  
+The story chain should be faithful to the characters’ personalities and roles, while keeping the pacing and suspense of an authentic Sherlock Holmes mystery.
+
+### Instructions:
+- Each scene should be concise but detailed enough to serve as a blueprint for writing full prose.  
+- Include both **dialogue moments** and **deduction/action moments**.  
+- Ensure red herrings appear as per the story.  
+- The final twist and resolution must be there.
+
+### OUTPUT FORMAT (JSON):
+
+{
+  "storyChain": [
+    "",
+    "",
+    ...
+  ]
+}
+
+---
+
+### Now generate the STORY CHAIN using the below <full-story>
+
+-------------------------------------
+
+
+<full-story>

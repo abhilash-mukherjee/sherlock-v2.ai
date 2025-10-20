@@ -48,3 +48,24 @@ class Job(BaseModel):
     finalStory: str
     audioChunks: list[AudioChunk] = []
     finalAudioFilePath: str = ""
+
+
+class TrainingDataGenMetaData(BaseModel):
+    storyVerse: str
+    storyVerseSystemPrompt: str
+    characterGenearationReversePrompt: str
+    characterInputPomptGenrationPrompt: str
+    plotGenerationReversePrompt: str
+    plotGenerationPomptGenrationPrompt: str
+    storyChainGenerationReversePrompt: str
+    storySummaryGenerationReversePrompt: str
+    fistDraftGenerationReversePrompt: str
+
+class TrainingIOPair(BaseModel):
+    storyVerse: str
+    pipelineStepName: str
+    reverseOutputPrompt: str
+    inputPromptForFineTuning: str
+    modelOutput: str
+    systemPrompt: str
+    createdAt: str
