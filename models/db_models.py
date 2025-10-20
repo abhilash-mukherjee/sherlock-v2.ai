@@ -56,16 +56,17 @@ class TrainingDataGenMetaData(BaseModel):
     characterGenearationReversePrompt: str
     characterInputPomptGenrationPrompt: str
     plotGenerationReversePrompt: str
-    plotGenerationPomptGenrationPrompt: str
+    plotCrimeThemeExtractionPrompt: str
     storyChainGenerationReversePrompt: str
     storySummaryGenerationReversePrompt: str
     fistDraftGenerationReversePrompt: str
 
 class TrainingIOPair(BaseModel):
     storyVerse: str
+    storyTitle: str
     pipelineStepName: str
     reverseOutputPrompt: str
     inputPromptForFineTuning: str
     modelOutput: str
     systemPrompt: str
-    createdAt: str
+    createdAt: int

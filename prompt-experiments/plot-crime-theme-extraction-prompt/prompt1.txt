@@ -1,0 +1,33 @@
+Go through the provided <full-story> (sherlock holmes story)
+and extract the most suitable crime theme(s) from the below list.
+
+
+Options:
+
+a. "theft, jewel_theft, burglary, robbery, pickpocketing, bank_robbery"
+b. "con / confidence_trick, forgery (documents/wills), counterfeiting"
+c. "blackmail, extortion (including blackmail letters), anonymous_threats / unsigned_letters / intimidation"
+d. "murder / homicide, attempted_murder / assassination, stabbing / knife_attack, shooting / gun_attack, assault / battery, professional_assassin / hired_killer"
+e. "kidnapping / abduction, disappearance / missing_person, staged_accident / faked_death / deception_by_artifice"
+f. "poisoning (household and exotic toxins)"
+g. "espionage / theft_of_state_documents, political_conspiracy, secret_societies_and_clandestine_orders, colonial-service secrets / crimes tied to overseas postings"
+h. "organized_crime / criminal_networks (Moriarty-type), smuggling (including opium and contraband), opium_den / drug_use_and_addiction, prostitution / procuring / brothel_exploitation, black_market / fencing_stolen_goods"
+i. "impersonation / false_identity / disguise"
+j. "wrongful_accusation / wrongful_conviction, perjury / courtroom_deception"
+k. "use_of_informers_and_child_agents (Baker_Street_Irregulars), media_sensationalism_and_public_shaming"
+l. "inheritance_dispute / entail_and_lineage_conflict, family_scandal / illicit_affair / social_ruin"
+
+Output format:
+The crime themes text should contain the theme strings excluding bullet points,
+
+For example, if you feel that the most suited crime theme is option b and can
+Then output a single text: "con / confidence_trick, forgery (documents/wills), counterfeiting", "blackmail, extortion (including blackmail letters), anonymous_threats / unsigned_letters / intimidation"
+
+
+Here is the <full-story>
+
+
+__________________________________
+
+
+ <full-story>
